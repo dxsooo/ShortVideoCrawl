@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "shortvideocrawl"
+version = "0.0.0"
+description = ""
+authors = ["zeohan.dxs <zeohan.dxs@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scrapy = "^2.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
