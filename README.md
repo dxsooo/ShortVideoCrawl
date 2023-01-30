@@ -2,7 +2,7 @@
 
 Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), currently supports:
 
-- kuaishou
+- [kuaishou](https://www.kuaishou.com/)
 
 ## Usage
 
@@ -16,6 +16,7 @@ requirements:
 ```bash
 git clone https://github.com/dxsooo/ShortVideoCrawl
 poetry install
+poetry shell
 ```
 
 ### run
@@ -24,5 +25,7 @@ For example:
 
 ```bash
 cd shortvideocrawl
-scrapy crawl kuaishou
+scrapy crawl kuaishou --query 蔡徐坤
 ```
+
+videos are saved in `./videos`, named with video id

@@ -9,4 +9,6 @@ import scrapy
 class ShortvideocrawlItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    id = scrapy.Field()
+    file_urls = scrapy.Field()
+    files = scrapy.Field()
