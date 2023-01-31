@@ -64,7 +64,8 @@ DOWNLOAD_DELAY = 3
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "shortvideocrawl.pipelines.ShortvideocrawlPipeline": 300,
-    "scrapy.pipelines.files.FilesPipeline": 301,
+    "shortvideocrawl.pipelines.VideosPipeline": 301,
+    # "scrapy.pipelines.files.FilesPipeline": 301,
 }
 
 FILES_STORE = "videos"

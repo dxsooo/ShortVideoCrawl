@@ -25,7 +25,9 @@ For example:
 
 ```bash
 cd shortvideocrawl
-scrapy crawl kuaishou --query 蔡徐坤
+# query: query word
+# count: target video count
+scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 ```
 
 videos are saved in `./videos`, named with video id

@@ -63,6 +63,6 @@ class KuaishouSpider(scrapy.Spider):
         # next
         if data["pcursor"] != "no_more":
             next_page = int(data["pcursor"])
-            # enough
+            # not enough, theoretically 20 per page
             if next_page * 20 < self.count:
                 yield self.request(next_page)
