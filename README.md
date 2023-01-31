@@ -1,5 +1,8 @@
 # ShortVideoCrawl
 
+[![GitHub](https://img.shields.io/github/license/dxsooo/ShortVideoCrawl)](./LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl/badge)](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl)
+
 Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), currently supports:
 
 - [kuaishou](https://www.kuaishou.com/)
