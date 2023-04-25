@@ -1,9 +1,10 @@
 import json
+import re
+from urllib.parse import quote, urlencode
 
 import scrapy
-from urllib.parse import urlencode, quote
+
 from ..items import ShortvideocrawlItem
-import re
 
 SEARCH_API = "https://haokan.baidu.com/haokan/ui-search/pc/search/video"
 headers = {
