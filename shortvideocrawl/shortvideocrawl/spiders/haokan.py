@@ -40,12 +40,12 @@ class HaokanSpider(scrapy.Spider):
     allowed_domains = ["haokan.baidu.com"]
 
     query = "蔡徐坤"
-    count = 30
+    count = 10
 
     def start_requests(self):
-        yield self.request(1)
+        yield self.search_request(1)
 
-    def request(self, page: int):
+    def search_request(self, page: int):
         st = 1682411075882
         s = sign(page, self.query, st)
         # print(s)
@@ -65,9 +65,10 @@ class HaokanSpider(scrapy.Spider):
             meta={"page": page},
             headers=headers,
             cookies=cookies,
+            callback=self.parse_search,
         )
 
-    def parse(self, response):
+    def parse_search(self, response):
         resp = json.loads(response.body)
         # print(resp)
         data = resp["data"]
@@ -79,12 +80,12 @@ class HaokanSpider(scrapy.Spider):
             if data["has_more"] != 0:
                 # not enough, theoretically 10 per page
                 if response.meta["page"] * 10 < self.count:
-                    yield self.request(response.meta["page"] + 1)
+                    yield self.search_request(response.meta["page"] + 1)
         # else:
         #     print(data)
 
 
-# following funs are translated from search.c9e205.chunk.js
+# following funcs are translated from search.c9e205.chunk.js
 def sign(o, i, l) -> str:
     s = "_".join([str(o), quote(i), "10", str(l), "1"])
     u = p(m(s))
