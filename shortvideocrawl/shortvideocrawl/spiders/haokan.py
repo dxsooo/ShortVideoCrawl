@@ -3,6 +3,7 @@ import json
 import scrapy
 from urllib.parse import urlencode, quote
 from ..items import ShortvideocrawlItem
+import re
 
 SEARCH_API = "https://haokan.baidu.com/haokan/ui-search/pc/search/video"
 headers = {
@@ -68,6 +69,12 @@ class HaokanSpider(scrapy.Spider):
             callback=self.parse_search,
         )
 
+    def detail_request(self, vid: int):
+        return scrapy.Request(
+            f"https://haokan.baidu.com/v?vid={vid}",
+            callback=self.parse_detail,
+        )
+
     def parse_search(self, response):
         resp = json.loads(response.body)
         # print(resp)
@@ -75,7 +82,8 @@ class HaokanSpider(scrapy.Spider):
 
         if "list" in data:
             for l in data["list"]:
-                print(l["vid"])
+                # print(l)
+                yield self.detail_request(l["vid"])
 
             if data["has_more"] != 0:
                 # not enough, theoretically 10 per page
@@ -83,6 +91,35 @@ class HaokanSpider(scrapy.Spider):
                     yield self.search_request(response.meta["page"] + 1)
         # else:
         #     print(data)
+
+    def parse_detail(self, response):
+        pattern = re.compile("window.__PRELOADED_STATE__ = (.*?);")
+        vals = pattern.findall(response.text)
+        if len(vals) > 0:
+            data = json.loads(vals[0])
+            meta = data["curVideoMeta"]
+
+            url = self.get_highest_quality(meta["clarityUrl"])
+            # print(url)
+            yield ShortvideocrawlItem(
+                id=meta["id"],
+                file_urls=[url],
+            )
+
+    @staticmethod
+    def get_highest_quality(data) -> str:
+        for d in data:
+            if d["key"] == "2k":
+                return d["url"]
+            if d["key"] == "1080p":
+                return d["url"]
+            if d["key"] == "sc":
+                return d["url"]
+            if d["key"] == "hd":
+                return d["url"]
+            if d["key"] == "sd":
+                return d["url"]
+        return data[-1]["url"]
 
 
 # following funcs are translated from search.c9e205.chunk.js
