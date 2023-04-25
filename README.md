@@ -7,21 +7,22 @@ Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawlin
 
 |Site|Name|Status|
 |-|-|-|
-|<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" width=100px height=40px/>| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
-||[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
+|<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" width=100 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
+|<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" width=100 />|[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
+
 
 ## Usage
 
 requirements:
 
-- python 3.10
+- python 3.10+
 - poetry
 
 ### prepare
 
 ```bash
 git clone https://github.com/dxsooo/ShortVideoCrawl
-poetry install
+poetry install --only main
 poetry shell
 ```
 
@@ -40,7 +41,7 @@ cd shortvideocrawl
 scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 
 # haokan
-scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
+scrapy crawl haokan -a query='蔡徐坤' -a count=50
 ```
 
 videos are saved in `./videos`, named with video id of source.
