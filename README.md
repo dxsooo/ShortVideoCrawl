@@ -7,9 +7,12 @@ Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawlin
 
 |Site|Name|Status|
 |-|-|-|
-|<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" width=100 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
-|<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" width=100 />|[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
-
+|<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
+|<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
+|<img src="https://pps.m.iqiyi.com/pcwDist/img/logo.302ccbde.png" height=40 />|suike| :clipboard: |
+|<img src="https://a.msstatic.com/huya/main3/static/img/logo.png" height=40 />|huya| :clipboard: |
+|梨视频|pearvideo| :clipboard: |
+|度小视 全民小视频|quanmin| :clipboard: |
 
 ## Usage
 
@@ -40,7 +43,7 @@ cd shortvideocrawl
 # kuaishou
 scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 
-# haokan
+# haokan, with highest resolution
 scrapy crawl haokan -a query='蔡徐坤' -a count=50
 ```
 
