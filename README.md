@@ -11,7 +11,7 @@ Supports:
 |-|-|-|
 |<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
 |<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
-|<img src="https://quanmin.baidu.com/web/publish/static/logo-du.9f546c46.png" height=40 />|quanmin| :clipboard: |
+|<img src="https://quanmin.baidu.com/web/publish/static/logo-du.9f546c46.png" height=40 />|[quanmin](https://quanmin.baidu.com)| :construction: |
 <!-- |梨视频|pearvideo| :clipboard: | -->
 <!-- | m3u8 格式<img src="https://a.msstatic.com/huya/main3/static/img/logo.png" height=40 />|huya| :clipboard: | -->
 
