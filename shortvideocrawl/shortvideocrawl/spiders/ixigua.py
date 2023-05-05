@@ -1,13 +1,44 @@
+import json
+from urllib.parse import quote
+
 import scrapy
+
+SEARCH_API = "https://www.ixigua.com/api/searchv2/complex/"
+headers = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    "referer": "https://www.ixigua.com/",
+}
 
 
 class IxiguaSpider(scrapy.Spider):
     name = "ixigua"
     allowed_domains = ["www.ixigua.com"]
-    start_urls = ["http://www.ixigua.com/"]
+
+    query = "蔡徐坤"
+    count = 20
+
+    def start_requests(self):
+        yield self.search_request(0)
+
+    def search_request(self, page: int):
+        offset = page * 10
+        return scrapy.Request(
+            SEARCH_API + quote(self.query) + "/" + str(offset),
+            headers=headers,
+            meta={"page": page},
+        )
 
     def parse(self, response):
-        pass
+        resp = json.loads(response.body)
+        data = resp["data"]
+        # print(data)
+        for d in data["data"]:
+            print(d["data"]["group_id"])
+
+        if data["has_more"] != False:
+            # not enough, theoretically 10 per page
+            if (response.meta["page"] + 1) * 10 < self.count:
+                yield self.search_request(response.meta["page"] + 1)
 
 
 # import math
