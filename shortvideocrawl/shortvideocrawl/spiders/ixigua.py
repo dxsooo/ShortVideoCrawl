@@ -1,7 +1,7 @@
 import base64
 import json
 import re
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 
 import scrapy
 
@@ -30,16 +30,26 @@ class IxiguaSpider(scrapy.Spider):
     allowed_domains = ["www.ixigua.com"]
 
     query = "蔡徐坤"
-    count = 10
+    count = 20
 
     def start_requests(self):
         yield self.search_request(0)
 
     def search_request(self, page: int):
         offset = page * 10
+        params = {
+            "min_duration": 1,
+            "max_duration": 300,
+        }
         return scrapy.Request(
-            SEARCH_API + quote(self.query) + "/" + str(offset),
+            SEARCH_API
+            + quote(self.query)
+            + "/"
+            + str(offset)
+            + "?"
+            + urlencode(params),
             headers=headers,
+            cookies=cookies,
             meta={"page": page},
             callback=self.parse_search,
         )
