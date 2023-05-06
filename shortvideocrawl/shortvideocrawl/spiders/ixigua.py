@@ -1,4 +1,6 @@
+import base64
 import json
+import re
 from urllib.parse import quote
 
 import scrapy
@@ -8,6 +10,17 @@ headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     "referer": "https://www.ixigua.com/",
 }
+cookies = {
+    "__ac_nonce": "06455b5c0004fea843108",
+    "__ac_signature": "_02B4Z6wo00f0140WgWAAAIDAoFJteHoK3s-NNoXAAIcYJlMyCLmPVH4GcpCz6cjabluXCRCqO1bgvhFs8.obVCRg442JRnLl6pDYOAIndQz4Nwpxpzq4zxK5yXkXPNX4Y9CwYy2G0Q67FYIw14",
+    "ixigua-a-s": "1",
+    "support_webp": "true",
+    "support_avif": "true",
+    "csrf_session_id": "61b3e21eff2632c4cf9b3721f078ce19",
+    "ttwid": "1%7CHBC3sXZ7O4N7hI-FudupBhdzSq7Tcv9kx4rSRlpFpdU%7C1683338709%7Ce37acd71825e60f975e65b66066e7a44b6e73b966c21d3744efd40d2479da98e",
+    "msToken": "1cMf4SpS6j4fo1zzyLHk2M7qLOP4Fz6_UE92slF4exP8M3XLG379wJ6-cyEQbMlWFqU28YfIiCLnPwuGbzgp_2_ceO67UgozSIuHsEjFj22SFdimwhjFbtXxfZEx2g==",
+    "tt_scid": "XJMrkuXM1Htc6nyCivY.cy8EIeul6-AEycBfnq.6NmgfjKZcm9MnTEDpSI2EY0cQ0b93",
+}
 
 
 class IxiguaSpider(scrapy.Spider):
@@ -15,7 +28,7 @@ class IxiguaSpider(scrapy.Spider):
     allowed_domains = ["www.ixigua.com"]
 
     query = "蔡徐坤"
-    count = 20
+    count = 10
 
     def start_requests(self):
         yield self.search_request(0)
@@ -26,21 +39,69 @@ class IxiguaSpider(scrapy.Spider):
             SEARCH_API + quote(self.query) + "/" + str(offset),
             headers=headers,
             meta={"page": page},
+            callback=self.parse_search,
         )
 
-    def parse(self, response):
+    def detail_request(self, vid):
+        return scrapy.Request(
+            f"https://www.ixigua.com/{vid}",
+            cookies=cookies,
+            callback=self.parse_detail,
+        )
+
+    def parse_search(self, response):
         resp = json.loads(response.body)
         data = resp["data"]
         # print(data)
         for d in data["data"]:
-            print(d["data"]["group_id"])
+            # print(d["data"]["group_id"])
+            yield self.detail_request(d["data"]["group_id"])
 
         if data["has_more"] != False:
             # not enough, theoretically 10 per page
             if (response.meta["page"] + 1) * 10 < self.count:
                 yield self.search_request(response.meta["page"] + 1)
 
+    def parse_detail(self, response):
+        # print(response.text)
+        pattern = re.compile(
+            r"<script id=\"SSR_HYDRATED_DATA\" nonce=.*?>window._SSR_HYDRATED_DATA=(.*?)<\/script>"
+        )
+        vals = pattern.findall(response.text)
+        # print(vals[0])
+        if len(vals) > 0:
+            data = json.loads(vals[0].replace('":undefined', '":null'))
+            meta = data["anyVideo"]["gidInformation"]
 
+            id = meta["gid"]
+
+            url = self.get_highest_quality(
+                meta["packerData"]["video"]["videoResource"]["normal"]["video_list"]
+            )
+
+            print(
+                id,
+                url,
+            )
+            # print(url)
+            # yield ShortvideocrawlItem(
+            #     id=meta["id"],
+            #     file_urls=[url],
+            # )
+
+    @staticmethod
+    def get_highest_quality(data) -> str:
+        url = ""
+        max_width = 0
+        for _, v in data.items():
+            if v["vwidth"] > max_width:
+                # url = v["main_url"]
+                url = base64.b64decode(v["main_url"].encode("utf-8")).decode("utf-8")
+                max_width = v["vwidth"]
+        return url
+
+
+# wget "https://v9-xg-web-pc.ixigua.com/4827e021895b23fb93751a149c53bd56/6455cb34/video/tos/cn/tos-cn-ve-4c001-alinc2/9c3d5a978ecb42cd8438199a91956d96/?a=1768&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&cv=1&br=2611&bt=2611&cs=0&ds=4&ft=6-IFAjjM9-px8Zq8ZmCTeK_ScoApU5aC6vrKffLLsto0g3&mime_type=video_mp4&qs=0&rc=Ozg5ZTdpaGk0OWk1NTtmaEBpMzxmZjs6ZmhtZTMzNDczM0BfX2M1Yy8zX18xYC1jXl4uYSNicm1ycjRnc2JgLS1kLWFzcw%3D%3D&l=2023050610332469F4E1F80BC2DBA1EA60&btag=e00028000" -O 1.mp4
 # import math
 # import os
 # import sys
