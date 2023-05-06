@@ -42,7 +42,7 @@ class HaokanSpider(scrapy.Spider):
     allowed_domains = ["haokan.baidu.com"]
 
     query = "蔡徐坤"
-    count = 10
+    count = 20
 
     def start_requests(self):
         yield self.search_request(1)
