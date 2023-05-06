@@ -12,3 +12,6 @@ class ShortvideocrawlItem(scrapy.Item):
     id = scrapy.Field()
     file_urls = scrapy.Field()
     files = scrapy.Field()
+
+    _cookies = scrapy.Field()
+    _headers = scrapy.Field()

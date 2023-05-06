@@ -1,6 +1,7 @@
-import scrapy
 import json
 from urllib.parse import urlencode
+
+import scrapy
 
 from ..items import ShortvideocrawlItem
 
@@ -15,9 +16,9 @@ class QuanminSpider(scrapy.Spider):
     count = 20
 
     def start_requests(self):
-        yield self.search_request(0)
+        yield self.request(0)
 
-    def search_request(self, page: int):
+    def request(self, page: int):
         query = {
             "rn": 12,
             "pn": page,
@@ -47,4 +48,4 @@ class QuanminSpider(scrapy.Spider):
             if data["list"]["has_more"] != 0:
                 # not enough, theoretically 10 per page
                 if (response.meta["page"] + 1) * 10 < self.count:
-                    yield self.search_request(response.meta["page"] + 1)
+                    yield self.request(response.meta["page"] + 1)

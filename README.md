@@ -10,6 +10,7 @@ Supports:
 |Site|Name|Status|
 |-|-|-|
 |<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
+|<img src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :heavy_check_mark:(not stable) |
 |<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :heavy_check_mark: |
 |<img src="https://quanmin.baidu.com/web/publish/static/logo-du.9f546c46.png" height=40 />|[quanmin](https://quanmin.baidu.com)| :heavy_check_mark: |
 <!-- |梨视频|pearvideo| :clipboard: | -->
@@ -43,6 +44,9 @@ cd shortvideocrawl
 
 # kuaishou
 scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
+
+# xigua, with highest resolution and size smaller than 16MB, duration smaller than 5 min
+scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
 # haokan, with highest resolution
 scrapy crawl haokan -a query='蔡徐坤' -a count=50
