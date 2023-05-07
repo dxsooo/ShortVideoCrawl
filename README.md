@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/github/license/dxsooo/ShortVideoCrawl)](./LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl/badge)](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl)
 
-Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawling with search query. 
+Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawling with search query.
 
 Supports:
 
@@ -15,6 +15,8 @@ Supports:
 |<img src="https://quanmin.baidu.com/web/publish/static/logo-du.9f546c46.png" height=40 />|[quanmin](https://quanmin.baidu.com)| :heavy_check_mark: |
 <!-- |梨视频|pearvideo| :clipboard: | -->
 <!-- | m3u8 格式<img src="https://a.msstatic.com/huya/main3/static/img/logo.png" height=40 />|huya| :clipboard: | -->
+
+> not stable: means mostly it works but sometime fails, retry may help
 
 ## Usage
 
