@@ -26,7 +26,7 @@ class KuaishouSpider(scrapy.Spider):
     allowed_domains = ["www.kuaishou.com"]
 
     query = "蔡徐坤"
-    count = 20
+    count = 40
 
     def start_requests(self):
         yield self.request(0)
@@ -61,7 +61,8 @@ class KuaishouSpider(scrapy.Spider):
             )
 
         # next
-        if data["pcursor"] != "no_more":
+        # print(data)
+        if data["pcursor"] != "no_more" and data["pcursor"] is not None:
             next_page = int(data["pcursor"])
             # not enough, theoretically 20 per page
             if next_page * 20 < self.count:
