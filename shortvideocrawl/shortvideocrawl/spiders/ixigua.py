@@ -71,7 +71,7 @@ class IxiguaSpider(scrapy.Spider):
 
         if data["has_more"] != False:
             # not enough, theoretically 10 per page
-            if (response.meta["page"] + 1) * 10 < self.count:
+            if (response.meta["page"] + 1) * 10 < int(self.count):
                 yield self.search_request(response.meta["page"] + 1)
 
     def parse_detail(self, response):

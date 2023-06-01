@@ -88,7 +88,7 @@ class HaokanSpider(scrapy.Spider):
 
             if data["has_more"] != 0:
                 # not enough, theoretically 10 per page
-                if response.meta["page"] * 10 < self.count:
+                if response.meta["page"] * 10 < int(self.count):
                     yield self.search_request(response.meta["page"] + 1)
         # else:
         #     print(data)

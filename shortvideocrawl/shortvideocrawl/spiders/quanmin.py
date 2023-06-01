@@ -47,5 +47,5 @@ class QuanminSpider(scrapy.Spider):
 
             if data["list"]["has_more"] != 0:
                 # not enough, theoretically 10 per page
-                if (response.meta["page"] + 1) * 10 < self.count:
+                if (response.meta["page"] + 1) * 10 < int(self.count):
                     yield self.request(response.meta["page"] + 1)
