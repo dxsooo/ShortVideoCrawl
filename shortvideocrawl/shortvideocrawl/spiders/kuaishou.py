@@ -12,11 +12,13 @@ headers = {
 cookies = {
     "kpf": "PC_WEB",
     "kpn": "KUAISHOU_VISION",
-    "clientid": "3",
-    "client_key": "65890b29",
-    "didv": "1673605994679",
-    "did": "web_35b63ae980e92610232940034cb2dc66",
+    "clientid": 3,
+    # "client_key": "65890b29",
+    # "didv": "1673605994679",
+    "did": "web_e09a1040aa48f4986189eb05785f0d70",
 }
+
+# kpf=PC_WEB; clientid=3; did=web_e09a1040aa48f4986189eb05785f0d70; kpn=KUAISHOU_VISION
 
 SEARCH_API = "https://www.kuaishou.com/graphql"
 
