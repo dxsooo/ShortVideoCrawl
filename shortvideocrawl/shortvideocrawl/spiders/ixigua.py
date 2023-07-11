@@ -67,7 +67,8 @@ class IxiguaSpider(scrapy.Spider):
         # print(data)
         for d in data["data"]:
             # print(d["data"]["group_id"])
-            yield self.detail_request(d["data"]["group_id"])
+            if "group_id" in d["data"].keys():
+                yield self.detail_request(d["data"]["group_id"])
 
         if data["has_more"] != False:
             # not enough, theoretically 10 per page
