@@ -15,7 +15,7 @@ cookies = {
     "clientid": 3,
     # "client_key": "65890b29",
     # "didv": "1673605994679",
-    "did": "web_6d189f83df5c19f080e6be541e9b36b2",
+    "did": "web_35b63ae980e92610232940034cb2dc66",
 }
 
 # kpf=PC_WEB; clientid=3; did=web_e09a1040aa48f4986189eb05785f0d70; kpn=KUAISHOU_VISION
