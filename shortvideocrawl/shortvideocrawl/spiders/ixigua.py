@@ -13,15 +13,14 @@ headers = {
     "referer": "https://www.ixigua.com/",
 }
 cookies = {
-    "__ac_nonce": "06455b5c0004fea843108",
-    "__ac_signature": "_02B4Z6wo00f0140WgWAAAIDAoFJteHoK3s-NNoXAAIcYJlMyCLmPVH4GcpCz6cjabluXCRCqO1bgvhFs8.obVCRg442JRnLl6pDYOAIndQz4Nwpxpzq4zxK5yXkXPNX4Y9CwYy2G0Q67FYIw14",
-    "ixigua-a-s": 1,
+    "__ac_signature": "_02B4Z6wo00f01Sj4t4gAAIDCBbxbkkVvcDEo2LMAAC5seeqMJOpxBgStyAHJmJnxEMVp8eHfV7hPj7whlIXMDNuERx70NeEFGGAxa7w6i1d875gavAns6E0ND8KsFRJzp298-Lydlw5d4.luf5",
+    "ixigua-a-s": 0,
     "support_webp": "true",
     "support_avif": "true",
-    "csrf_session_id": "61b3e21eff2632c4cf9b3721f078ce19",
-    "ttwid": "1%7CHBC3sXZ7O4N7hI-FudupBhdzSq7Tcv9kx4rSRlpFpdU%7C1683338709%7Ce37acd71825e60f975e65b66066e7a44b6e73b966c21d3744efd40d2479da98e",
-    "msToken": "1cMf4SpS6j4fo1zzyLHk2M7qLOP4Fz6_UE92slF4exP8M3XLG379wJ6-cyEQbMlWFqU28YfIiCLnPwuGbzgp_2_ceO67UgozSIuHsEjFj22SFdimwhjFbtXxfZEx2g==",
-    "tt_scid": "XJMrkuXM1Htc6nyCivY.cy8EIeul6-AEycBfnq.6NmgfjKZcm9MnTEDpSI2EY0cQ0b93",
+    "csrf_session_id": "8d66a2705f917f03938dfad1147727d0",
+    "ttwid": "1%7CoO6dQdpyel3tVei7nLGeOfGtx6rU-TKXkZkZUpySPzA%7C1692578092%7C7a9fe16f8415cbd571aacc4df6595bc6f82d85c630bd47be662e629199d3cbe5",
+    "msToken": "fvt2MXYD38y2e_i7ZNueTNAmm9s0fH_T_089bycvTdLb0ok80COLdhWMIuUIB8iy_jzsVFtoS3uzHWOmJOZ7-1pi0-KdMgI2w8c_wxbkEAVWniN3vSA7t5vCAakbzUg=",
+    "tt_scid": "8gdVyLvMGuLLyavEjrTahtoVjTyaotowNPHonF8ZABuZhs9fg-1Jwb-RhDuMbtLKcec2",
 }
 
 
@@ -64,7 +63,7 @@ class IxiguaSpider(scrapy.Spider):
     def parse_search(self, response):
         resp = json.loads(response.body)
         data = resp["data"]
-        # print(data)
+        # print(json.dumps(data))
         for d in data["data"]:
             # print(d["data"]["group_id"])
             if "group_id" in d["data"].keys():
