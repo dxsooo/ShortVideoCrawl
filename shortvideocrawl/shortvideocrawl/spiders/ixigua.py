@@ -17,10 +17,10 @@ cookies = {
     "ixigua-a-s": 0,
     "support_webp": "true",
     "support_avif": "true",
-    "csrf_session_id": "8d66a2705f917f03938dfad1147727d0",
-    "ttwid": "1%7CoO6dQdpyel3tVei7nLGeOfGtx6rU-TKXkZkZUpySPzA%7C1692578092%7C7a9fe16f8415cbd571aacc4df6595bc6f82d85c630bd47be662e629199d3cbe5",
-    "msToken": "fvt2MXYD38y2e_i7ZNueTNAmm9s0fH_T_089bycvTdLb0ok80COLdhWMIuUIB8iy_jzsVFtoS3uzHWOmJOZ7-1pi0-KdMgI2w8c_wxbkEAVWniN3vSA7t5vCAakbzUg=",
-    "tt_scid": "8gdVyLvMGuLLyavEjrTahtoVjTyaotowNPHonF8ZABuZhs9fg-1Jwb-RhDuMbtLKcec2",
+    "csrf_session_id": "d28c89dc9d551c164e5affe587843926",
+    "ttwid": "1%7CT8jjz5QwK63e1AP_ya2CTrpepvN_ChfDJgtbI-lp3aw%7C1702714736%7C639231539d40b73487625e1d90902dfa8587aadd9fe13aaa0d286fd889532e2b",
+    "msToken": "Qj3DmdHUf10MnlDDm7dWEqMstbeXO9TWwiXyA5x-B9m5XkIEj3gEVZDq1LHF066hDr_pwqUk2wBz2TCWCAvKn8xUsNpSbiXIuPtEHpX7W_j9zunpCqQM0UFSCdIsugVQ",
+    "tt_scid": "rc8TLJEYWomWR7f78oQ2OsttbOP2ztWVVRbnPUqtO99Cc-4wsD8ufCFQAdBveE2P968e",
 }
 
 
