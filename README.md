@@ -9,14 +9,14 @@ Supports:
 
 |Site|Name|Status|
 |-|-|-|
-|<img src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark:(not stable) |
-|<img src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :heavy_check_mark:(not stable) |
-|<img src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :construction: |
-|<img src="https://quanmin.baidu.com/web/publish/static/logo-du.9f546c46.png" height=40 />|[quanmin](https://quanmin.baidu.com)| :heavy_check_mark: |
+|<img alt='kuaishou' src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
+|<img alt='xigua' src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :heavy_check_mark: |
+|<img alt='haokan' src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :construction: |
+|度小视/全民小视频*|quanmin| :heavy_check_mark: |
 <!-- |梨视频|pearvideo| :clipboard: | -->
 <!-- | m3u8 格式<img src="https://a.msstatic.com/huya/main3/static/img/logo.png" height=40 />|huya| :clipboard: | -->
 
-> not stable: means mostly it works but sometime fails, retry may help
+> \*度小视/全民小视频官网已经下线，但是目前本项目仍可用（2023.12测试）
 
 ## Usage
 
@@ -29,6 +29,7 @@ requirements:
 
 ```bash
 git clone https://github.com/dxsooo/ShortVideoCrawl
+cd ShortVideoCrawl
 poetry install --only main
 poetry shell
 ```
@@ -51,7 +52,7 @@ scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
 # haokan, with highest resolution
-scrapy crawl haokan -a query='蔡徐坤' -a count=50
+# scrapy crawl haokan -a query='蔡徐坤' -a count=50
 
 # quanmin
 scrapy crawl quanmin -a query='蔡徐坤' -a count=50
