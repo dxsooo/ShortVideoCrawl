@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/github/license/dxsooo/ShortVideoCrawl)](./LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl/badge)](https://www.codefactor.io/repository/github/dxsooo/shortvideocrawl)
 
-Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawling with search query.
+Short video crawler based on [scrapy](https://github.com/scrapy/scrapy), crawling with search query of the target sites.
 
 Supports:
 
@@ -52,8 +52,8 @@ scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 # xigua, with highest resolution and size smaller than 16MB, duration smaller than 5 min
 scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
-# xinpianchang, with highest resolution but can only get a fixed number of video
-scrapy crawl ixigua -a query='蔡徐坤'
+# xinpianchang, with highest resolution and duration smaller than 5 min but can only get a fixed number of video
+scrapy crawl xinpianchang -a query='蔡徐坤'
 
 # haokan, with highest resolution
 # scrapy crawl haokan -a query='蔡徐坤' -a count=50
