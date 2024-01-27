@@ -7,12 +7,13 @@ from ..items import ShortvideocrawlItem
 
 GET_SEARCH_ID_API = "https://www.xinpianchang.com/api/xpc/v2/search/getSearchKwIdByKw"
 SEARCH_API = "https://www.xinpianchang.com/_next/data/%s/search.json"
-headers = {
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
-}
 VIDEO_INFO_API = (
     "https://mod-api.xinpianchang.com/mod/api/v2/media/%s?appKey=61a2f329348b3bf77"
 )
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+}
 
 
 class XinpianchangSpider(scrapy.Spider):
@@ -20,7 +21,6 @@ class XinpianchangSpider(scrapy.Spider):
     allowed_domains = ["www.xinpianchang.com", "mod-api.xinpianchang.com"]
 
     query = "蔡徐坤"
-    count = 20
 
     def start_requests(self):
         yield scrapy.Request(
@@ -30,10 +30,7 @@ class XinpianchangSpider(scrapy.Spider):
         )
 
     def search_request(self, search_id, build_id):
-        params = {
-            "from": "inputSearch",
-            "kw_id": search_id,
-        }
+        params = {"from": "inputSearch", "kw_id": search_id, "duration": "0,300"}
         return scrapy.Request(
             SEARCH_API % build_id + "?" + urlencode(params),
             headers=headers,
