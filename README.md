@@ -11,6 +11,7 @@ Supports:
 |-|-|-|
 |<img alt='kuaishou' src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
 |<img alt='xigua' src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :heavy_check_mark: |
+|新片场|[xinpianchang](https://www.xinpianchang.com/)| :heavy_check_mark: |
 |<img alt='haokan' src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :construction: |
 |度小视/全民小视频*|quanmin| :heavy_check_mark: |
 <!-- |梨视频|pearvideo| :clipboard: | -->
@@ -50,6 +51,9 @@ scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 
 # xigua, with highest resolution and size smaller than 16MB, duration smaller than 5 min
 scrapy crawl ixigua -a query='蔡徐坤' -a count=50
+
+# xinpianchang, with highest resolution but can only get a fixed number of video
+scrapy crawl ixigua -a query='蔡徐坤'
 
 # haokan, with highest resolution
 # scrapy crawl haokan -a query='蔡徐坤' -a count=50
