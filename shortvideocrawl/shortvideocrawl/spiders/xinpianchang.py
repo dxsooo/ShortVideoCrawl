@@ -76,9 +76,22 @@ class XinpianchangSpider(scrapy.Spider):
 
     def parse_video_info(self, response):
         resp = json.loads(response.body)
-        video_url = resp["data"]["resource"]["progressive"][0]["url"]
         video_id = resp["data"]["mid"]
-        yield ShortvideocrawlItem(
-            id=video_id,
-            file_urls=[video_url],
-        )
+        url = self.get_highest_quality(resp["data"]["resource"]["progressive"])
+        if url != "":
+            yield ShortvideocrawlItem(
+                id=video_id,
+                file_urls=[url],
+            )
+
+    @staticmethod
+    def get_highest_quality(data) -> str:
+        url = ""
+        max_width = 0
+        for v in data:
+            if (
+                v["width"] > max_width and v["filesize"] < 64 * 1024 * 1024
+            ):  # file size smaller than 64MB
+                url = v["url"]
+                max_width = v["width"]
+        return url

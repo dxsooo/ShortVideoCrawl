@@ -52,7 +52,7 @@ scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 # xigua, with highest resolution and size smaller than 64 MB, duration smaller than 5 min
 scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
-# xinpianchang, with highest resolution and duration smaller than 5 min but can only get a fixed number of video
+# xinpianchang, with highest resolution and size smaller than 64 MB, duration smaller than 5 min, but can only get a fixed number of video
 scrapy crawl xinpianchang -a query='蔡徐坤'
 
 # haokan, with highest resolution
