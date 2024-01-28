@@ -49,7 +49,7 @@ cd shortvideocrawl
 # kuaishou
 scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 
-# xigua, with highest resolution and size smaller than 16MB, duration smaller than 5 min
+# xigua, with highest resolution and size smaller than 64 MB, duration smaller than 5 min
 scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
 # xinpianchang, with highest resolution and duration smaller than 5 min but can only get a fixed number of video

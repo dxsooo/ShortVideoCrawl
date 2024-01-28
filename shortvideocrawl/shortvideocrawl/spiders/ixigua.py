@@ -101,8 +101,8 @@ class IxiguaSpider(scrapy.Spider):
         max_width = 0
         for _, v in data.items():
             if (
-                v["vwidth"] > max_width and v["size"] < 16 * 1024 * 1024
-            ):  # file size smaller than 16MB
+                v["vwidth"] > max_width and v["size"] < 64 * 1024 * 1024
+            ):  # file size smaller than 64MB
                 # url = v["main_url"]
                 url = base64.b64decode(v["main_url"].encode("utf-8")).decode("utf-8")
                 max_width = v["vwidth"]
