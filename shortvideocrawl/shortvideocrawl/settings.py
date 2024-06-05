@@ -70,6 +70,9 @@ ITEM_PIPELINES = {
 
 FILES_STORE = "videos"
 
+# unlimit
+DOWNLOAD_WARNSIZE = 0
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True

@@ -18,7 +18,11 @@ headers = {
 
 class XinpianchangSpider(scrapy.Spider):
     name = "xinpianchang"
-    allowed_domains = ["www.xinpianchang.com", "mod-api.xinpianchang.com"]
+    allowed_domains = [
+        "www.xinpianchang.com",
+        "mod-api.xinpianchang.com",
+        "xpccdn.com",
+    ]
 
     query = "蔡徐坤"
 
@@ -55,14 +59,15 @@ class XinpianchangSpider(scrapy.Spider):
     def parse_search(self, response):
         resp = json.loads(response.body)
         search_data = resp["pageProps"]["searchData"]
-        if "list" in search_data.keys():
+        if "list" in search_data:
             for d in search_data["list"]:
-                # print(d["web_url"])
-                yield scrapy.Request(
-                    d["web_url"].split("?")[0],
-                    headers=headers,
-                    callback=self.parse_detail,
-                )
+                # print(d)
+                if "web_url" in d:
+                    yield scrapy.Request(
+                        d["web_url"].split("?")[0],
+                        headers=headers,
+                        callback=self.parse_detail,
+                    )
 
     def parse_detail(self, response):
         # print(response.body)
@@ -82,6 +87,9 @@ class XinpianchangSpider(scrapy.Spider):
             yield ShortvideocrawlItem(
                 id=video_id,
                 file_urls=[url],
+                _headers={
+                    "range": "bytes=0-",
+                },
             )
 
     @staticmethod
