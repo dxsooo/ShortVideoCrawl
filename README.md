@@ -17,7 +17,7 @@ Supports:
 <!-- |梨视频|pearvideo| :clipboard: | -->
 <!-- | m3u8 格式<img src="https://a.msstatic.com/huya/main3/static/img/logo.png" height=40 />|huya| :clipboard: | -->
 
-> \*度小视/全民小视频官网已经下线，但是目前本项目仍可用（2023.12测试）
+> \*度小视/全民小视频官网已经下线，但是目前本项目仍可用（2024.6测试）
 
 ## Usage
 

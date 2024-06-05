@@ -10,7 +10,7 @@ SEARCH_API = "https://quanmin.baidu.com/wise/growth/api/home/searchmorelist"
 
 class QuanminSpider(scrapy.Spider):
     name = "quanmin"
-    allowed_domains = ["quanmin.baidu.com"]
+    allowed_domains = ["quanmin.baidu.com", "bdstatic.com"]
 
     query = "蔡徐坤"
     count = 20
