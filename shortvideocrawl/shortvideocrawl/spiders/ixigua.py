@@ -13,14 +13,17 @@ headers = {
     "referer": "https://www.ixigua.com/",
 }
 cookies = {
-    "__ac_signature": "_02B4Z6wo00f01Sj4t4gAAIDCBbxbkkVvcDEo2LMAAC5seeqMJOpxBgStyAHJmJnxEMVp8eHfV7hPj7whlIXMDNuERx70NeEFGGAxa7w6i1d875gavAns6E0ND8KsFRJzp298-Lydlw5d4.luf5",
-    "ixigua-a-s": 0,
+    "csrf_session_id": "812a63a05b0adb796737198645a7db48",
     "support_webp": "true",
     "support_avif": "true",
-    "csrf_session_id": "d28c89dc9d551c164e5affe587843926",
-    "ttwid": "1%7CT8jjz5QwK63e1AP_ya2CTrpepvN_ChfDJgtbI-lp3aw%7C1702714736%7C639231539d40b73487625e1d90902dfa8587aadd9fe13aaa0d286fd889532e2b",
-    "msToken": "Qj3DmdHUf10MnlDDm7dWEqMstbeXO9TWwiXyA5x-B9m5XkIEj3gEVZDq1LHF066hDr_pwqUk2wBz2TCWCAvKn8xUsNpSbiXIuPtEHpX7W_j9zunpCqQM0UFSCdIsugVQ",
-    "tt_scid": "rc8TLJEYWomWR7f78oQ2OsttbOP2ztWVVRbnPUqtO99Cc-4wsD8ufCFQAdBveE2P968e",
+    "msToken": "Ty1J7te-X2i7QNFCtXSru4Ynpvmh7B6j86CVTFcV3TxacHWwyTfweP_UvK54EuLEx3v7O_NDZPvgkDOqHZmMwXJTKEL3DC5-P5Fyqg8=",
+    "fpk1": "U2FsdGVkX1+kemf8xYpe3wksHjGni1kMAfW8OpsdXThDsx8SaJ2kwcHajsP6Gpnfb9P8kkxnuIdyfipJez8j8w==",
+    "fpk2": "d72690806e05ab108412ee33b4c5c3e1",
+    "_tea_utm_cache_2285": "undefined",
+    "ixigua-a-s": "1",
+    "tt_scid": "LSErAHS5pGlnI2UJwICxaT4WdMNw36koPGT19HAcl7kBgJR378u6-Ggkhq.W7F7zc389",
+    "ttwid": "1%7CLr-_X8mdYVnrdMcniUQYfLP0oRZwKi3caPq8oLe1wlg%7C1717690469%7C12dec422a6ddd831b29b75e8886f79caa4d1ca13a741c2557b10de86fad89446",
+    "msToken": "uAbhlpb9Iw4kbIb3SF_Gcwvh9RcpOKJp4VUOy1x9k2q56nU_2kOaVWP6jbP-bWmBj_hcNvgbUB-ORByLnoxKS_M5Q-Cn0FUly-BpbJPmChvTGxeSercQKbn8Um6i3SA=",
 }
 
 

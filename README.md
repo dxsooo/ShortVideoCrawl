@@ -10,7 +10,7 @@ Supports:
 |Site|Name|Status|
 |-|-|-|
 |<img alt='kuaishou' src="https://static.yximgs.com/udata/pkg/frontend-explore/material-lib-www/word-logo-1-min.png" height=40 />| [kuaishou](https://www.kuaishou.com/)| :heavy_check_mark: |
-|<img alt='xigua' src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :heavy_check_mark: |
+|<img alt='xigua' src="https://lf3-cdn-tos.bdxiguastatic.com/obj/ixigua-static/xigua_fe/xigua_video_web_pc/static/media/logo.6aae7c46.svg" height=40 />| [ixigua](https://www.ixigua.com/)| :construction: |
 |新片场|[xinpianchang](https://www.xinpianchang.com/)| :heavy_check_mark: |
 |<img alt='haokan' src="https://pic.rmb.bdstatic.com/baidu-rmb-video-cover-1/2022-2/1645100826352/418a3aceca30.png" height=40 />|[haokan](https://haokan.baidu.com/)| :construction: |
 |度小视/全民小视频*|quanmin| :heavy_check_mark: |
@@ -50,7 +50,7 @@ cd shortvideocrawl
 scrapy crawl kuaishou -a query='蔡徐坤' -a count=50
 
 # xigua, with highest resolution and size smaller than 64 MB, duration smaller than 5 min
-scrapy crawl ixigua -a query='蔡徐坤' -a count=50
+# scrapy crawl ixigua -a query='蔡徐坤' -a count=50
 
 # xinpianchang, with highest resolution and size smaller than 64 MB, duration smaller than 5 min, but can only get a fixed number of video
 scrapy crawl xinpianchang -a query='蔡徐坤'
